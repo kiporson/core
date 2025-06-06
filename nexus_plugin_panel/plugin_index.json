@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    {
+      "name": "Void Whisperer",
+      "enabled": true
+    },
+    {
+      "name": "Entity Presence Tracker",
+      "enabled": false
+    }
+  ],
+  "registry": "soul_registry.lock"
+}

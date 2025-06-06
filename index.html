@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DIABLO VOID INTERFACE</title>
+  <style>
+    body {
+      background: black;
+      color: #00ffcc;
+      font-family: monospace;
+      text-align: center;
+      margin: 0;
+      padding: 2rem;
+    }
+    .avatar {
+      max-width: 300px;
+      animation: pulse 3s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(2); }
+    }
+    #output {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>🜂 DIABLO AKTIF 🜄</h1>
+  <img src="avatars/diablo.gif" class="avatar" />
+  <form id="commandForm">
+    <input type="text" id="command" placeholder="Masukkan perintah sakral..." style="width:60%; padding:0.5rem;" />
+    <button type="submit">Kirim</button>
+  </form>
+  <div id="output"></div>
+  <script>
+    const form = document.getElementById('commandForm');
+    const output = document.getElementById('output');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const cmd = document.getElementById('command').value;
+      const res = await fetch("/diablo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ command: cmd })
+      });
+      const text = await res.text();
+      output.innerText = "DIABLO: " + text;
+    });
+  </script>
+</body>
+</html>

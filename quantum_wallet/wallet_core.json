@@ -1,0 +1,9 @@
+{
+  "wallet": "active",
+  "owner": "PAPIPUPOR",
+  "balance": 0,
+  "token": {
+    "type": "soul",
+    "synced": true
+  }
+}
